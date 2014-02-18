@@ -11,7 +11,10 @@ package tunrec;
  * @author ibrahim
  */
 public class Test {
+
     private int id ;
     private int conflit; 
        
+
 }
+
