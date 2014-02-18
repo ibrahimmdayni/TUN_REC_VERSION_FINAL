@@ -12,6 +12,6 @@ package tunrec;
  */
 public class Test {
     private int id ;
-    
-    
+    private int conflit; 
+       
 }
