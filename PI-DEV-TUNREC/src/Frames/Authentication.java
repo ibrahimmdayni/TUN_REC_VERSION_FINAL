@@ -137,15 +137,18 @@ public class Authentication extends javax.swing.JFrame {
         System.out.println(Password);
         TextFiledLogin.setText(null);
         TextFiledPassword.setText(null);
+        
         switch (Se_Authentifier(Login, Login))
         {
             case "administrateur" :{//JOptionPane.showMessageDialog(null,"yes");}
                 dispose();
+                new FramePrincipale().close();
                 
                 
             }
             case "candidat" :;
             case "gerant entreprise" :;
+            case  "non inscrit" : JOptionPane.showMessageDialog(null, "vous n'etes pas inscrit,vous pouvez s'inscrire gratuitement ","Erreur d'accès",JOptionPane.ERROR_MESSAGE);
         }
         
         

@@ -6,6 +6,10 @@
 
 package Frames;
 
+import java.awt.Toolkit;
+import java.awt.Window;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author ibrahim
@@ -37,7 +41,7 @@ public class FramePrincipale extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Se_connecter = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Inscription_FramePrincipale = new javax.swing.JButton();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
 
@@ -101,7 +105,12 @@ public class FramePrincipale extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("S'inscrire");
+        Inscription_FramePrincipale.setText("S'inscrire");
+        Inscription_FramePrincipale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Inscription_FramePrincipaleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,7 +128,7 @@ public class FramePrincipale extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Se_connecter, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Inscription_FramePrincipale, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -134,7 +143,7 @@ public class FramePrincipale extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Se_connecter)
-                    .addComponent(jButton2))
+                    .addComponent(Inscription_FramePrincipale))
                 .addGap(48, 48, 48))
         );
 
@@ -186,6 +195,11 @@ public class FramePrincipale extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Se_connecterActionPerformed
 
+    private void Inscription_FramePrincipaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inscription_FramePrincipaleActionPerformed
+        // TODO add your handling code here:
+        new FrameInscription().setVisible(true);
+    }//GEN-LAST:event_Inscription_FramePrincipaleActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,16 +234,17 @@ public class FramePrincipale extends javax.swing.JFrame {
             }
         });
     }
-    public class frame_principale_closing{
+    
    public void close()
    {
-      
+       WindowEvent WinClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+       Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(WinClosingEvent );
    }
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Inscription_FramePrincipale;
     private javax.swing.JButton Se_connecter;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
