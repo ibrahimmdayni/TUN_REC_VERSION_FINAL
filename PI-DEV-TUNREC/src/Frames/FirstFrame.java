@@ -6,8 +6,12 @@
 
 package Frames;
 
+import java.awt.HeadlessException;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JProgressBar;
+import javax.swing.JSeparator;
 import javax.swing.Timer;
 
 /**
@@ -36,6 +40,9 @@ public class FirstFrame extends javax.swing.JFrame {
      }else
      {
          timer.stop();
+         dispose();
+         new FramePrincipale().setVisible(true);
+         
          
      }
     
@@ -172,6 +179,10 @@ public class FirstFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     
+   
+
+
+    
     /**
      * @param args the command line arguments
      */
@@ -201,10 +212,32 @@ public class FirstFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new FirstFrame().setVisible(true);
             }
         });
+        
+        
+        
+        
+        
+    }
+    
+
+    public FirstFrame(Timer timer, JProgressBar ProgressBarFirstFrame, JSeparator jSeparator1, Label label1, Label label2, Label label3, Label label4, Label label5, Label label6, Label label7, Label label8, Label label9) throws HeadlessException {
+        this.timer = timer;
+        this.ProgressBarFirstFrame = ProgressBarFirstFrame;
+        this.jSeparator1 = jSeparator1;
+        this.label1 = label1;
+        this.label2 = label2;
+        this.label3 = label3;
+        this.label4 = label4;
+        this.label5 = label5;
+        this.label6 = label6;
+        this.label7 = label7;
+        this.label8 = label8;
+        this.label9 = label9;
     }
 
     private Timer timer;

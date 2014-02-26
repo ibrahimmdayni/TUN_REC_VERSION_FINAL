@@ -9,6 +9,7 @@ package Entities;
 import UTIL.DATE;
 import java.awt.Image;
 import java.io.File;
+import java.sql.Blob;
 import java.util.Date;
 
 
@@ -24,19 +25,12 @@ public class Dossier_Candidature extends Candidat{
     private Date Date_Envoi_Dossier_Candidature;
     private int Accuse_Reception_Dossier_Candidature;
     private int Reponse_Societe_Dossier_Candidature;
+    
 
     public Dossier_Candidature() {
     }
 
-    public Dossier_Candidature(int ID_Dossier_Candidature, File CV_Dossier_Candidature, File Lettre_motivation_Dossier_Candidature, Date Date_Envoi_Dossier_Candidature, int Accuse_Reception_Dossier_Candidature, int Reponse_Societe_Dossier_Candidature, int ID_Utilisateur, int Cin_Utilisateur, String Nom_Utilisateur, String Prenom_Utilisateur, DATE Date_Naissance_Utilisateur, String Email_Utilisateur, String Adress_Utilisateur, int Tele_Utilisateur, Image Photo_Utilisateur, String Experience_Candidat, String Description_Candidat) {
-        super(ID_Utilisateur, Cin_Utilisateur, Nom_Utilisateur, Prenom_Utilisateur, Date_Naissance_Utilisateur, Email_Utilisateur, Adress_Utilisateur, Tele_Utilisateur, Photo_Utilisateur, Experience_Candidat, Description_Candidat);
-        this.ID_Dossier_Candidature = ID_Dossier_Candidature;
-        this.CV_Dossier_Candidature = CV_Dossier_Candidature;
-        this.Lettre_motivation_Dossier_Candidature = Lettre_motivation_Dossier_Candidature;
-        this.Date_Envoi_Dossier_Candidature = Date_Envoi_Dossier_Candidature;
-        this.Accuse_Reception_Dossier_Candidature = Accuse_Reception_Dossier_Candidature;
-        this.Reponse_Societe_Dossier_Candidature = Reponse_Societe_Dossier_Candidature;
-    }
+   
     
 
     public int getID_Dossier_Candidature() {

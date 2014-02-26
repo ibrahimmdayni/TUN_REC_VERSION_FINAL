@@ -21,10 +21,12 @@ public class Gerant_Entreprise extends Utilisateurs{
     public Gerant_Entreprise() {
     }
 
-    public Gerant_Entreprise( int ID_Utilisateur, int Cin_Utilisateur, String Nom_Utilisateur, String Prenom_Utilisateur, DATE Date_Naissance_Utilisateur, String Email_Utilisateur, String Adress_Utilisateur, int Tele_Utilisateur, Image Photo_Utilisateur,String Nom_Entreprise) {
-        super(ID_Utilisateur, Cin_Utilisateur, Nom_Utilisateur, Prenom_Utilisateur, Date_Naissance_Utilisateur, Email_Utilisateur, Adress_Utilisateur, Tele_Utilisateur, Photo_Utilisateur);
+    public Gerant_Entreprise( String Login_Utilisateurs, String Password_Utilisateurs, int ID_Utilisateur, int Cin_Utilisateur, String Nom_Utilisateur, String Prenom_Utilisateur, DATE Date_Naissance_Utilisateur, String Email_Utilisateur, String Adress_Utilisateur, int Tele_Utilisateur, Image Photo_Utilisateur,String Nom_Entreprise) {
+        super(Login_Utilisateurs, Password_Utilisateurs, ID_Utilisateur, Cin_Utilisateur, Nom_Utilisateur, Prenom_Utilisateur, Date_Naissance_Utilisateur, Email_Utilisateur, Adress_Utilisateur, Tele_Utilisateur, Photo_Utilisateur);
         this.Nom_Entreprise = Nom_Entreprise;
     }
+
+   
 
     public String getNom_Entreprise() {
         return Nom_Entreprise;

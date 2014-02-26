@@ -24,11 +24,29 @@ public class Utilisateurs {
     private String Adress_Utilisateur;
     private int Tele_Utilisateur;
     private Image Photo_Utilisateur; 
+    private String Login_Utilisateurs;
+    private String Password_Utilisateurs;
+
+    public String getLogin_Utilisateurs() {
+        return Login_Utilisateurs;
+    }
+
+    public void setLogin_Utilisateurs(String Login_Utilisateurs) {
+        this.Login_Utilisateurs = Login_Utilisateurs;
+    }
+
+    public String getPassword_Utilisateurs() {
+        return Password_Utilisateurs;
+    }
+
+    public void setPassword_Utilisateurs(String Password_Utilisateurs) {
+        this.Password_Utilisateurs = Password_Utilisateurs;
+    }
 
     public Utilisateurs() {
     }
 
-    public Utilisateurs(int ID_Utilisateur, int Cin_Utilisateur, String Nom_Utilisateur, String Prenom_Utilisateur, DATE Date_Naissance_Utilisateur, String Email_Utilisateur, String Adress_Utilisateur, int Tele_Utilisateur, Image Photo_Utilisateur) {
+    public Utilisateurs(String Login_Utilisateurs, String Password_Utilisateurs,int ID_Utilisateur, int Cin_Utilisateur, String Nom_Utilisateur, String Prenom_Utilisateur, DATE Date_Naissance_Utilisateur, String Email_Utilisateur, String Adress_Utilisateur, int Tele_Utilisateur, Image Photo_Utilisateur) {
         this.ID_Utilisateur = ID_Utilisateur;
         this.Cin_Utilisateur = Cin_Utilisateur;
         this.Nom_Utilisateur = Nom_Utilisateur;
@@ -38,7 +56,11 @@ public class Utilisateurs {
         this.Adress_Utilisateur = Adress_Utilisateur;
         this.Tele_Utilisateur = Tele_Utilisateur;
         this.Photo_Utilisateur = Photo_Utilisateur;
+        this.Login_Utilisateurs = Login_Utilisateurs;
+        this.Password_Utilisateurs = Password_Utilisateurs;
     }
+
+    
 
     public int getID_Utilisateur() {
         return ID_Utilisateur;
@@ -114,16 +136,18 @@ public class Utilisateurs {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.ID_Utilisateur;
-        hash = 97 * hash + this.Cin_Utilisateur;
-        hash = 97 * hash + Objects.hashCode(this.Nom_Utilisateur);
-        hash = 97 * hash + Objects.hashCode(this.Prenom_Utilisateur);
-        hash = 97 * hash + Objects.hashCode(this.Date_Naissance_Utilisateur);
-        hash = 97 * hash + Objects.hashCode(this.Email_Utilisateur);
-        hash = 97 * hash + Objects.hashCode(this.Adress_Utilisateur);
-        hash = 97 * hash + this.Tele_Utilisateur;
-        hash = 97 * hash + Objects.hashCode(this.Photo_Utilisateur);
+        int hash = 3;
+        hash = 29 * hash + this.ID_Utilisateur;
+        hash = 29 * hash + this.Cin_Utilisateur;
+        hash = 29 * hash + Objects.hashCode(this.Nom_Utilisateur);
+        hash = 29 * hash + Objects.hashCode(this.Prenom_Utilisateur);
+        hash = 29 * hash + Objects.hashCode(this.Date_Naissance_Utilisateur);
+        hash = 29 * hash + Objects.hashCode(this.Email_Utilisateur);
+        hash = 29 * hash + Objects.hashCode(this.Adress_Utilisateur);
+        hash = 29 * hash + this.Tele_Utilisateur;
+        hash = 29 * hash + Objects.hashCode(this.Photo_Utilisateur);
+        hash = 29 * hash + Objects.hashCode(this.Login_Utilisateurs);
+        hash = 29 * hash + Objects.hashCode(this.Password_Utilisateurs);
         return hash;
     }
 
@@ -163,8 +187,16 @@ public class Utilisateurs {
         if (!Objects.equals(this.Photo_Utilisateur, other.Photo_Utilisateur)) {
             return false;
         }
+        if (!Objects.equals(this.Login_Utilisateurs, other.Login_Utilisateurs)) {
+            return false;
+        }
+        if (!Objects.equals(this.Password_Utilisateurs, other.Password_Utilisateurs)) {
+            return false;
+        }
         return true;
     }
+
+   
 
     
     

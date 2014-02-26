@@ -23,12 +23,13 @@ public class Candidat  extends Utilisateurs{
     public Candidat() {
     }
 
-    public Candidat(int ID_Utilisateur, int Cin_Utilisateur, String Nom_Utilisateur, String Prenom_Utilisateur, DATE Date_Naissance_Utilisateur, String Email_Utilisateur, String Adress_Utilisateur, int Tele_Utilisateur, Image Photo_Utilisateur,String Experience_Candidat, String Description_Candidat) {
-        super(ID_Utilisateur, Cin_Utilisateur, Nom_Utilisateur, Prenom_Utilisateur, Date_Naissance_Utilisateur, Email_Utilisateur, Adress_Utilisateur, Tele_Utilisateur, Photo_Utilisateur);
+    public Candidat( String Login_Utilisateurs, String Password_Utilisateurs, int ID_Utilisateur, int Cin_Utilisateur, String Nom_Utilisateur, String Prenom_Utilisateur, DATE Date_Naissance_Utilisateur, String Email_Utilisateur, String Adress_Utilisateur, int Tele_Utilisateur, Image Photo_Utilisateur,String Experience_Candidat, String Description_Candidat) {
+        super(Login_Utilisateurs, Password_Utilisateurs, ID_Utilisateur, Cin_Utilisateur, Nom_Utilisateur, Prenom_Utilisateur, Date_Naissance_Utilisateur, Email_Utilisateur, Adress_Utilisateur, Tele_Utilisateur, Photo_Utilisateur);
         this.Experience_Candidat = Experience_Candidat;
         this.Description_Candidat = Description_Candidat;
-        
     }
+
+    
 
     public String getExperience_Candidat() {
         return Experience_Candidat;

@@ -23,6 +23,7 @@ public class test_ouverture {
       /*  Dossier_Candidature m = new Dossier_Candidature();
         m.setDossier_candidature("6405062013.pdf");
         m.setID_Dossier_Candidature(1);*/
+        
        Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " +"D:\\6405062013.pdf" );
         
     }
