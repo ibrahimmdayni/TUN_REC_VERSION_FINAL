@@ -6,7 +6,6 @@
 
 package Entities;
 
-import UTIL.DATE;
 import java.sql.Blob;
 import java.util.Objects;
 
