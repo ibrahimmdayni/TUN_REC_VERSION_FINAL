@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Frames;
 
+import Entities.Administrateur;
+import Entities.Candidat;
+import Entities.Gerant_Entreprise;
 import Entities_DAO.Administrateur_DAO;
 import Entities_DAO.Candidat_DAO;
 import Entities_DAO.Gerant_Entreprise_DAO;
@@ -16,14 +18,32 @@ import javax.swing.JOptionPane;
  * @author ibrahim
  */
 public class Authentication extends javax.swing.JFrame {
-    private String Login=null;
-    private String Password=null;
-        
-        
-    public Authentication() {
-        initComponents();
+
+    private String Login = "";
+    private String Password = "";
+    private Administrateur admini;
+    private Candidat cand;
+    private Gerant_Entreprise gerant;
+    private int result = 0;
+    FramePrincipale f ;
+
+    public int getResult() {
+        return result;
     }
 
+    public Administrateur getAdmini() {
+        return admini;
+    }   
+    public Authentication() {
+        initComponents();
+        
+    }
+
+    public Authentication( FramePrincipale f) {
+        this.f = f;
+        initComponents();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -129,58 +149,88 @@ public class Authentication extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Se_connecterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Se_connecterActionPerformed
-        
-        Login=TextFiledLogin.getText();
-        char[] pass= TextFiledPassword.getPassword();
-        Password= new String(pass);
-        System.out.println(Login);
-        System.out.println(Password);
-        TextFiledLogin.setText(null);
-        TextFiledPassword.setText(null);
-        
-        switch (Se_Authentifier(Login, Login))
+
+        Login = TextFiledLogin.getText().toString();
+        Password = new String(TextFiledPassword.getPassword()); 
+        //System.out.println(Login);
+        //System.out.println(Password);
+        if ((TextFiledLogin.getText().isEmpty()) && (Password.isEmpty())) {
+            JOptionPane.showMessageDialog(null, "Les ne doit pas etre vide ", "Erreur d'accès", JOptionPane.ERROR_MESSAGE);
+            
+        } else {
+            result = Se_Authentifier(Login, Password);
+            TextFiledLogin.setText("");
+            TextFiledPassword.setText("");
+        if(result==1)
         {
-            case "administrateur" :{//JOptionPane.showMessageDialog(null,"yes");}
+                Reponseauthentification r= new Reponseauthentification();
+                r.setVisible(true);
+                r.setReponse("Bonjour MR/MME "+admini.getNom_Administrateur()); 
                 dispose();
-                new FramePrincipale().close();
+                f.dispose();
                 
-                
-            }
-            case "candidat" :;
-            case "gerant entreprise" :;
-            case  "non inscrit" : JOptionPane.showMessageDialog(null, "vous n'etes pas inscrit,vous pouvez s'inscrire gratuitement ","Erreur d'accès",JOptionPane.ERROR_MESSAGE);
         }
-        
-        
+        if(result==2)
+        {
+                Reponseauthentification r= new Reponseauthentification();
+                r.setVisible(true);
+                r.setReponse("Bonjour MR/MME "+cand.getNom_Candidat()); 
+                dispose();
+                f.dispose();
+                
+        }
+         if(result==3)
+        {
+                Reponseauthentification r= new Reponseauthentification();
+                r.setVisible(true);
+                r.setReponse("Bonjour MR/MME "+gerant.getNom_Gerant_Entreprise()); 
+                dispose();
+                f.dispose();
+                
+        }
+        if(result==-1)
+        {
+              Reponseauthentification r= new Reponseauthentification();
+                r.setVisible(true);
+                r.setReponse("vous n'éte pas inscri vous pouvez s'inscrire gratuitement");
+        }
+
+        }
     }//GEN-LAST:event_Se_connecterActionPerformed
-    private String Se_Authentifier(String log, String pass)
-    {  
+    private int Se_Authentifier(String log, String pass) {
+       //administrateur
         Administrateur_DAO admin = new Administrateur_DAO();
-        if(admin.Find_AdminByLogin_Password(log, pass))
-        {
-           return "administrateur"; 
-        }
+        admini = admin.Find_AdminByLogin_Password(log, pass);
+       // candidat 
         Candidat_DAO candidat = new Candidat_DAO();
-        if(candidat.Find_CandidatByLogin_Password(log, pass))
+        cand = candidat.Find_CandidatByLogin_Password(log, pass);
+        //gerant entreprise
+        Gerant_Entreprise_DAO gerant_en = new Gerant_Entreprise_DAO();
+        gerant = gerant_en.Find_Gerant_EntrepriseByLogin_Password(log, pass);
+        //test s'il est un administrateur
+        if ((admini.getLogin_Administrateur() != null && admini.getLogin_Administrateur().equals(log)) && (admini.getPassword_Administrateur() != null && admini.getPassword_Administrateur().equals(pass))) {
+            result = 1;
+        }
+        //test s'il est un candidat
+        if ((cand.getLogin_Candidat()!= null && cand.getLogin_Candidat().equals(log)) && (cand.getPassword_Candidat()!= null && cand.getPassword_Candidat().equals(pass))) {
+            result = 2;
+        }
+        //test s'il est un gerant d'entreprise
+        if ((gerant.getLogin_Gerant_Entreprise()!= null && gerant.getLogin_Gerant_Entreprise().equals(log)) && (gerant.getPassword_Gerant_Entreprise()!= null && gerant.getPassword_Gerant_Entreprise().equals(pass))) {
+            result = 3;
+        }
+        else
         {
-            return "candidat";
-        }
-        Gerant_Entreprise_DAO gerant = new Gerant_Entreprise_DAO();
-        if(gerant.Find_Gerant_EntrepriseByLogin_Password(log, pass))
-        {
-           return "gerant entreprise";
-        }
-        else {
-            return "non inscrit";
-        }
+            result = -1;
+        }   
+        return result;
     }
-    
-    
+
+
     private void Authentification_AnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Authentification_AnnulerActionPerformed
         this.TextFiledLogin.setText(null);
         this.TextFiledPassword.setText(null);
         this.dispose();
-        
     }//GEN-LAST:event_Authentification_AnnulerActionPerformed
 
     /**
@@ -197,16 +247,21 @@ public class Authentication extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Authentication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Authentication.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Authentication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Authentication.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Authentication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Authentication.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Authentication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Authentication.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

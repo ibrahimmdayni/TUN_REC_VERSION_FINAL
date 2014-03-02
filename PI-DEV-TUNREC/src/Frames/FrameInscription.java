@@ -346,7 +346,11 @@ public class FrameInscription extends javax.swing.JFrame {
         ChoosingFile.showOpenDialog(null);
         File f =ChoosingFile.getSelectedFile();
         String FilePath = f.getAbsolutePath();
-        TextFieldPhotoPath.setText(FilePath);    
+        
+        TextFieldPhotoPath.setText(FilePath);
+             
+        
+                       
     }//GEN-LAST:event_FrameInscriptionBtnParrcourirActionPerformed
 private void reset(){
     TextFieldAdresse.setText(null);
@@ -463,4 +467,7 @@ private void reset(){
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
+// image 
+    private String FilePath =null;
+    byte [] Person_Image=null;
 }

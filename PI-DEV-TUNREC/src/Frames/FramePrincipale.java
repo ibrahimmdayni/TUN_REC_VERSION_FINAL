@@ -9,12 +9,17 @@ package Frames;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author ibrahim
  */
 public class FramePrincipale extends javax.swing.JFrame {
+     Authentication authen = new Authentication(this);
+     FrameInscription inscription = new FrameInscription();
+    
+    
 
     /**
      * Creates new form FramePrincipale
@@ -191,13 +196,15 @@ public class FramePrincipale extends javax.swing.JFrame {
 
     private void Se_connecterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Se_connecterActionPerformed
         // TODO add your handling code here:
-        new Authentication().setVisible(true);
+        authen.setVisible(true);
+    
+        
         
     }//GEN-LAST:event_Se_connecterActionPerformed
 
     private void Inscription_FramePrincipaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Inscription_FramePrincipaleActionPerformed
         // TODO add your handling code here:
-        new FrameInscription().setVisible(true);
+        inscription.setVisible(true);
     }//GEN-LAST:event_Inscription_FramePrincipaleActionPerformed
 
     /**
@@ -230,7 +237,8 @@ public class FramePrincipale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FramePrincipale().setVisible(true);
+                FramePrincipale f = new FramePrincipale();
+                f.setVisible(true);
             }
         });
     }
@@ -240,6 +248,7 @@ public class FramePrincipale extends javax.swing.JFrame {
        WindowEvent WinClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(WinClosingEvent );
    }
+   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

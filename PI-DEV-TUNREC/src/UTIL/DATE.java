@@ -6,6 +6,9 @@
 
 package UTIL;
 
+
+import java.util.Date;
+
 /**
  *
  * @author ibrahim
@@ -14,7 +17,7 @@ public class DATE {
     private int DAY;
     private int MONTH;
     private int YEAR;
-
+   
     public DATE() {
     }
 
@@ -65,7 +68,7 @@ public class DATE {
 
     @Override
     public String toString() {
-        return "DATE{" + "DAY=" + DAY + ", MONTH=" + MONTH + ", YEAR=" + YEAR + '}';
+        return DAY + "/" + MONTH + "/" + YEAR ;
     }
 
 

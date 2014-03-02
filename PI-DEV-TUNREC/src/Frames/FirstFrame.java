@@ -19,6 +19,7 @@ import javax.swing.Timer;
  * @author ibrahim
  */
 public class FirstFrame extends javax.swing.JFrame {
+     FramePrincipale frameprincipale = new FramePrincipale();
 
     /**
      * Creates new form FirstFrame
@@ -41,7 +42,7 @@ public class FirstFrame extends javax.swing.JFrame {
      {
          timer.stop();
          dispose();
-         new FramePrincipale().setVisible(true);
+         frameprincipale.setVisible(true);
          
          
      }
@@ -49,6 +50,7 @@ public class FirstFrame extends javax.swing.JFrame {
      }
         
     }
+   
     
     
     /**

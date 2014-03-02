@@ -6,7 +6,6 @@
 
 package Entities;
 
-import UTIL.DATE;
 import java.util.Objects;
 
 /**
@@ -15,9 +14,9 @@ import java.util.Objects;
  */
 public class Offre_Emploi {
     private int ID_Offre_Emploi ;
-    private DATE Date_Publication_Offre_Emploi;
+    private String Date_Publication_Offre_Emploi;
     private String Description_Offre_Emploi ;
-    private DATE Date_Expiration_Offre ;
+    private String Date_Expiration_Offre ;
     private String Societe;
     private String Adresse_societe;
     private int Tele_Societe;
@@ -27,7 +26,7 @@ public class Offre_Emploi {
     public Offre_Emploi() {
     }
 
-    public Offre_Emploi(int ID_Offre_Emploi, DATE Date_Publication_Offre_Emploi, String Description_Offre_Emploi, DATE Date_Expiration_Offre, String Societe, String Adresse_societe, int Tele_Societe, String Domain_Offre_Emploi, String Niveau_demander) {
+    public Offre_Emploi(int ID_Offre_Emploi, String Date_Publication_Offre_Emploi, String Description_Offre_Emploi, String Date_Expiration_Offre, String Societe, String Adresse_societe, int Tele_Societe, String Domain_Offre_Emploi, String Niveau_demander) {
         this.ID_Offre_Emploi = ID_Offre_Emploi;
         this.Date_Publication_Offre_Emploi = Date_Publication_Offre_Emploi;
         this.Description_Offre_Emploi = Description_Offre_Emploi;
@@ -47,11 +46,11 @@ public class Offre_Emploi {
         this.ID_Offre_Emploi = ID_Offre_Emploi;
     }
 
-    public DATE getDate_Publication_Offre_Emploi() {
+    public String getDate_Publication_Offre_Emploi() {
         return Date_Publication_Offre_Emploi;
     }
 
-    public void setDate_Publication_Offre_Emploi(DATE Date_Publication_Offre_Emploi) {
+    public void setDate_Publication_Offre_Emploi(String Date_Publication_Offre_Emploi) {
         this.Date_Publication_Offre_Emploi = Date_Publication_Offre_Emploi;
     }
 
@@ -63,11 +62,11 @@ public class Offre_Emploi {
         this.Description_Offre_Emploi = Description_Offre_Emploi;
     }
 
-    public DATE getDate_Expiration_Offre() {
+    public String getDate_Expiration_Offre() {
         return Date_Expiration_Offre;
     }
 
-    public void setDate_Expiration_Offre(DATE Date_Expiration_Offre) {
+    public void setDate_Expiration_Offre(String Date_Expiration_Offre) {
         this.Date_Expiration_Offre = Date_Expiration_Offre;
     }
 
@@ -163,15 +162,5 @@ public class Offre_Emploi {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Offre_Emploi{" + "ID_Offre_Emploi=" + ID_Offre_Emploi + ", Date_Publication_Offre_Emploi=" + Date_Publication_Offre_Emploi + ", Description_Offre_Emploi=" + Description_Offre_Emploi + ", Date_Expiration_Offre=" + Date_Expiration_Offre + ", Societe=" + Societe + ", Adresse_societe=" + Adresse_societe + ", Tele_Societe=" + Tele_Societe + ", Domain_Offre_Emploi=" + Domain_Offre_Emploi + ", Niveau_demander=" + Niveau_demander + '}';
-    }
-    
-     
-
-    
-    
+    }      
 }
